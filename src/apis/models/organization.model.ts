@@ -4,10 +4,14 @@ import { database } from '../../config';
 
 export class Organization extends Model {
   public id!: number; // Note that the `null assertion` `!` is required in strict mode.
+
   public name!: string;
+
   public domain!: string;
+
   // timestamps!
   public readonly createdAt!: Date;
+
   public readonly updatedAt!: Date;
 }
 
@@ -40,11 +44,11 @@ const initOrganization = () => {
       // underscored: true,
       tableName: 'organization',
       sequelize: database, // this bit is important
-    }
+    },
   );
 
   Organization.sync({ force: false }).then(() =>
-    console.log('Organization table created')
+    console.log('Organization table created'),
   );
-}
-export { initOrganization }
+};
+export { initOrganization };

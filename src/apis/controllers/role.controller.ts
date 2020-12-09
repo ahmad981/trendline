@@ -14,6 +14,6 @@ export class RoleController {
   }
 
   public removeRole(id: number): Promise<number> {
-    return Role.destroy({ where: { id: id } });
+    return Role.destroy({ where: { id } });
   }
 }

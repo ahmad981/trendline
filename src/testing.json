@@ -1,0 +1,3840 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a trendline server apis documentation",
+        "version": "1.0.0",
+        "title": "Trend line",
+        "contact": {
+            "email": "skhalid0322@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [],
+    "schemes": [
+        "http"
+    ],
+    "securityDefinitions": {
+        "x-auth-token": {
+            "type": "apiKey",
+            "name": "x-auth-token",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/org": {
+            "post": {
+                "tags": [
+                    "organizations"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrganization"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrganization200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "organizations"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/GetOrganization"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetOrganization200"
+                        }
+                    }
+                }
+            }
+        },
+        "/org/{ID}": {
+            "get": {
+                "tags": [
+                    "organizations"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetById200"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "organizations"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateOrganization"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateOrganization200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "organizations"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteOrganization200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/Login200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/signup": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/SignUp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/SignUp200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issues in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                }
+            }
+        },
+        "/userprofile": {
+            "post": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/CreateProfile200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/userprofile/update": {
+            "put": {
+                "tags": [
+                    "profile"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProfile200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/user/create/admin": {
+            "post": {
+                "tags": [
+                    "admins"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateAdmin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/user/get/admins": {
+            "get": {
+                "tags": [
+                    "admins"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetAdmins200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/GetUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetUser200"
+                        }
+                    }
+                }
+            }
+        },
+        "/company": {
+            "post": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "Create Employer profile",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/CreateProfile200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/company/add/photo": {
+            "post": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddGalleryPhoto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddGalleryPhoto200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/company/remove/photo/{ID}": {
+            "delete": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/RemoveGalleryPhoto200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, Invalid ID",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/company/update/address": {
+            "put": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateAddress200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/company/action/update": {
+            "put": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateInfo200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/user/companies": {
+            "get": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCompanies"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCompanies200"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/emp/signup": {
+            "post": {
+                "tags": [
+                    "company"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/SignUpEmployer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/SignUpEmployer200"
+                        }
+                    }
+                },
+                "422": {
+                    "description": "Validation Error, There is some issue in params",
+                    "schema": {
+                        "$ref": "#/definitions/422"
+                    }
+                }
+            }
+        },
+        "/industry": {
+            "post": {
+                "tags": [
+                    "industry"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/Create200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "industry"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetIndustries200"
+                        }
+                    }
+                }
+            }
+        },
+        "/industry/{ID}": {
+            "put": {
+                "tags": [
+                    "industry"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateIndustry200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "industry"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteIndustry200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, Invalid ID",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/media/upload": {
+            "post": {
+                "tags": [
+                    "media"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Upload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/Upload200"
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs/trtypes": {
+            "get": {
+                "tags": [
+                    "trainings"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/GetTrTypes"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetTrTypes200"
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs/trdurations/{ID}": {
+            "get": {
+                "tags": [
+                    "trainings"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetDurationsByType200"
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs/add/startdate": {
+            "post": {
+                "tags": [
+                    "start date"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "jobID",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddStartDates"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/add/startdate/single": {
+            "post": {
+                "tags": [
+                    "start date"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "jobID",
+                        "in": "query",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "name",
+                        "schema": {
+                            "$ref": "#/definitions/AddSingle"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddSingle200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/delete/startdate/{ID}": {
+            "delete": {
+                "tags": [
+                    "start date"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/Remove200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/add/questions": {
+            "post": {
+                "tags": [
+                    "job question"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "jobID",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddQuestions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddQuestions200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs": {
+            "post": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateJob"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, There is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Please update profile first",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                }
+            },
+            "get": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "Get All Jobs by Admin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllJobs200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/get/mine": {
+            "get": {
+                "tags": [
+                    "my jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied, Not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs/add/skills": {
+            "post": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "jobID",
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddMultipleSkills"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddMultipleSkills200"
+                        }
+                    },
+                    "422": {
+                        "description": "Access Denied, Not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied, Not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/add/oneskill": {
+            "post": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "jobID",
+                        "in": "query",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddSkill"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddSkill200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access Denied, Not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/delete/skills/{ID}": {
+            "delete": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteSkill200"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, ID is invalid",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/add/photo": {
+            "post": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "jobID",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/AddJobplacePhotos"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/AddJobplacePhotos200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/jobs/search?search=front end Developer&lat=33.333&lng=73.4232&zipcode=33405": {
+            "get": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "Search jobs near location && zipcode",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "type": "string",
+                        "required": true,
+                        "in": "query"
+                    },
+                    {
+                        "name": "lat",
+                        "type": "number",
+                        "required": true,
+                        "in": "query"
+                    },
+                    {
+                        "name": "lng",
+                        "type": "number",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "zipcode",
+                        "type": "number",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/SearchJob"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/SearchJob200"
+                        }
+                    }
+                }
+            }
+        },
+        "/jobs/filter": {
+            "post": {
+                "tags": [
+                    "jobs"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/FilterJob"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/FilterJob200"
+                        }
+                    }
+                }
+            }
+        },
+        "/skill": {
+            "post": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateSkill"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/CreateSkill200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetSkills200"
+                        }
+                    }
+                }
+            }
+        },
+        "/skill/{ID}": {
+            "put": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateSkill200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteSkill200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, ID is invalid",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/skill/search?search=java&page=0&limit=3": {
+            "get": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/SearchSkill"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/SearchSkill200"
+                        }
+                    }
+                }
+            }
+        },
+        "/quiz": {
+            "post": {
+                "tags": [
+                    "question"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/CreateQuestion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/CreateQuestion200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "question"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/GetQuestions200"
+                        }
+                    }
+                }
+            }
+        },
+        "/quiz/{ID}": {
+            "put": {
+                "tags": [
+                    "question"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateQuestion200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "question"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteQuestion200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, ID is invalid",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/quiz/option": {
+            "post": {
+                "tags": [
+                    "options"
+                ],
+                "summary": " add options to question",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "string",
+                        "schema": {
+                            "$ref": "#/definitions/CreateOptions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/quiz/options/{ID}": {
+            "put": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error, there is some issue in params",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied, not loged in",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    },
+                    "403": {
+                        "description": "Un Authorized",
+                        "schema": {
+                            "$ref": "#/definitions/422"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        },
+        "/quiz/options/byquestion/{ID}": {
+            "get": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "get all options by question id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ID",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "results found",
+                        "schema": {
+                            "$ref": "#/definitions/200"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "x-auth-token": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "CreateOrganization": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateOrganization200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "domain": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "GetOrganization200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "domain": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "GetById200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "domain": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "UpdateOrganization": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateOrganization200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteOrganization200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "Login": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Login200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "SignUp200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateProfile": {
+            "type": "object",
+            "properties": {
+                "logo": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "line1": {
+                    "type": "string"
+                },
+                "line2": {
+                    "type": "string"
+                },
+                "industryId": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "lng": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateProfile200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateProfile": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "education": {
+                    "type": "string"
+                },
+                "empStatus": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "anIncome": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "gradComDate": {
+                    "type": "string"
+                },
+                "linkedIn": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateProfile200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateAdmin": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "roleId": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetAdmins200": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "roleId": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "role": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "1": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "roleId": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "role": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "GetUser200": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "roleId": {
+                            "type": "number"
+                        },
+                        "organizationId": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        },
+                        "hash": {
+                            "type": "string"
+                        },
+                        "isEmailVerified": {
+                            "type": "boolean"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "role": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "profile": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "userId": {
+                                    "type": "number"
+                                },
+                                "education": {
+                                    "type": "string"
+                                },
+                                "age": {
+                                    "type": "number"
+                                },
+                                "gender": {
+                                    "type": "number"
+                                },
+                                "gradComDate": {
+                                    "type": "string"
+                                },
+                                "anIncome": {
+                                    "type": "number"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "linkedIn": {
+                                    "type": "string"
+                                },
+                                "empStatus": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "AddGalleryPhoto": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddGalleryPhoto200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "companyId": {
+                            "type": "number"
+                        },
+                        "image": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "RemoveGalleryPhoto": {
+            "type": "object",
+            "properties": {
+                "logo": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "line1": {
+                    "type": "string"
+                },
+                "line2": {
+                    "type": "string"
+                },
+                "industryId": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "lng": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "string"
+                }
+            }
+        },
+        "RemoveGalleryPhoto200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateAddress": {
+            "type": "object",
+            "properties": {
+                "line1": {
+                    "type": "string"
+                },
+                "line2": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "lng": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateAddress200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateInfo": {
+            "type": "object",
+            "properties": {
+                "logo": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "industryId": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateInfo200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetAllCompanies200": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "company": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "logo": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "industryId": {
+                                    "type": "number"
+                                },
+                                "industry": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "address": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "zipcode": {
+                                            "type": "number"
+                                        },
+                                        "lat": {
+                                            "type": "number"
+                                        },
+                                        "lng": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "SignUpEmployer": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "roleId": {
+                    "type": "string"
+                },
+                "organizationId": {
+                    "type": "string"
+                }
+            }
+        },
+        "SignUpEmployer200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "Create": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Create200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "UpdateIndustry": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateIndustry200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteIndustry": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteIndustry200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetIndustries200": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "1": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "2": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "3": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "Upload": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "file"
+                }
+            }
+        },
+        "Upload200": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetTrTypes200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetDurationsByType200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "trt": {
+                                "type": "number"
+                            },
+                            "days": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddSingle200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "date": {
+                            "type": "string"
+                        },
+                        "time": {
+                            "type": "string"
+                        },
+                        "jobId": {
+                            "type": "number"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "Remove200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddQuestions": {
+            "type": "object",
+            "properties": {
+                "jobId": {
+                    "type": "string"
+                },
+                "question": {
+                    "type": "string"
+                },
+                "answer": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddQuestions200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "question": {
+                            "type": "string"
+                        },
+                        "answer": {
+                            "type": "string"
+                        },
+                        "jobId": {
+                            "type": "number"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateJob200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "companyId": {
+                            "type": "number"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "trainingType": {
+                            "type": "string"
+                        },
+                        "trDescription": {
+                            "type": "string"
+                        },
+                        "trDuration": {
+                            "type": "number"
+                        },
+                        "noOfOpenings": {
+                            "type": "number"
+                        },
+                        "isPaid": {
+                            "type": "boolean"
+                        },
+                        "hourlyRate": {
+                            "type": "number"
+                        },
+                        "geoLocation": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "coordinates": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "zipcode": {
+                            "type": "number"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "photos": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "image": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "questions": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "question": {
+                                        "type": "string"
+                                    },
+                                    "answer": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "skills": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "skill": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "startDates": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "time": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddMultipleSkills200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "skill": {
+                                "type": "string"
+                            },
+                            "jobId": {
+                                "type": "number"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddSkill200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "skill": {
+                            "type": "string"
+                        },
+                        "jobId": {
+                            "type": "number"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteSkill200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddJobplacePhotos": {
+            "type": "object",
+            "properties": {
+                "jobId": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddJobplacePhotos200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "image": {
+                            "type": "string"
+                        },
+                        "jobId": {
+                            "type": "number"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "SearchJob": {
+            "type": "object",
+            "properties": {
+                "search": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                }
+            }
+        },
+        "SearchJob200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "companyId": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "trainingType": {
+                                "type": "string"
+                            },
+                            "trDescription": {
+                                "type": "string"
+                            },
+                            "trDuration": {
+                                "type": "number"
+                            },
+                            "noOfOpenings": {
+                                "type": "number"
+                            },
+                            "isPaid": {
+                                "type": "boolean"
+                            },
+                            "hourlyRate": {
+                                "type": "number"
+                            },
+                            "industry": {
+                                "type": "string"
+                            },
+                            "zipcode": {
+                                "type": "number"
+                            },
+                            "geoLocation": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "page": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "hasNext": {
+                    "type": "boolean"
+                },
+                "hasPrev": {
+                    "type": "boolean"
+                },
+                "totalDocs": {
+                    "type": "number"
+                }
+            }
+        },
+        "FilterJob200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "companyId": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "trainingType": {
+                                "type": "string"
+                            },
+                            "trDescription": {
+                                "type": "string"
+                            },
+                            "trDuration": {
+                                "type": "number"
+                            },
+                            "noOfOpenings": {
+                                "type": "number"
+                            },
+                            "isPaid": {
+                                "type": "boolean"
+                            },
+                            "hourlyRate": {
+                                "type": "number"
+                            },
+                            "zipcode": {
+                                "type": "number"
+                            },
+                            "industry": {
+                                "type": "string"
+                            },
+                            "geoLocation": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "totalDocs": {
+                    "type": "number"
+                },
+                "hasNext": {
+                    "type": "boolean"
+                },
+                "hasPrev": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                }
+            }
+        },
+        "GetAllJobs200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "companyId": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "trainingType": {
+                                "type": "string"
+                            },
+                            "trDescription": {
+                                "type": "string"
+                            },
+                            "trDuration": {
+                                "type": "number"
+                            },
+                            "noOfOpenings": {
+                                "type": "number"
+                            },
+                            "isPaid": {
+                                "type": "boolean"
+                            },
+                            "hourlyRate": {
+                                "type": "number"
+                            },
+                            "geoLocation": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateSkill": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "CreateSkill200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetSkills200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "UpdateSkill": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateSkill200": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "SearchSkill": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "SearchSkill200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "CreateQuestion200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "category": {
+                            "type": "number"
+                        },
+                        "question": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "number"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "options": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "option": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateQuestion": {
+            "type": "object",
+            "properties": {
+                "question": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateQuestion200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "question": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "GetQuestions200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "category": {
+                                "type": "number"
+                            },
+                            "question": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "number"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "option": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "DeleteQuestion200": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "question": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "number"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "option": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "CreateOptions": {
+            "type": "object",
+            "properties": {
+                "option": {
+                    "type": "string"
+                },
+                "questionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "UpdateOption": {
+            "type": "object",
+            "properties": {
+                "option": {
+                    "type": "string"
+                },
+                "questionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeleteOptions": {
+            "type": "object",
+            "properties": {
+                "option": {
+                    "type": "string"
+                },
+                "questionId": {
+                    "type": "string"
+                }
+            }
+        },
+        "OptionsByQuestion": {
+            "type": "object",
+            "properties": {
+                "option": {
+                    "type": "string"
+                },
+                "questionId": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

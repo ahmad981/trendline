@@ -14,14 +14,13 @@ export class OrganizationController {
   }
 
   public removeOrganization(id: number): Promise<number> {
-    return Organization.destroy({ where: { id: id } });
+    return Organization.destroy({ where: { id } });
   }
 
   public update(
     org: Organization,
-    id: number
+    id: number,
   ): Promise<[number, Organization[]]> {
-    console.log('testing ', org);
-    return Organization.update(org, { where: { id: id } });
+    return Organization.update(org, { where: { id } });
   }
 }

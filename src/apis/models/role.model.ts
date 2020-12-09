@@ -4,9 +4,12 @@ import { database } from '../../config';
 
 class Role extends Model {
   public id!: number; // Note that the `null assertion` `!` is required in strict mode.
+
   public name!: string;
+
   // timestamps!
   public readonly createdAt!: Date;
+
   public readonly updatedAt!: Date;
 }
 
@@ -32,11 +35,11 @@ const initRole = () => {
       // underscored: true,
       tableName: 'roles',
       sequelize: database, // this bit is important
-    }
+    },
   );
 
   Role.sync({ force: false });
-}
+};
 
 
 export { Role, initRole };

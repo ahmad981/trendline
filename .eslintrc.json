@@ -1,19 +1,19 @@
+
 {
     "extends": [
-        "airbnb", 
-        "prettier", 
-        "plugin:node/recommended", 
-        "typescript",
-        "prettier/@typescript-eslint",
-        "plugin:@typescript-eslint/recommended"
+        "airbnb-typescript/base",
+        "prettier"
     ],
-    "plugins": ["prettier"],
-    "parser": "@typescript-eslint/parser",
+    "plugins": ["prettier"],    
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "project": "./tsconfig.json"
     },
     "rules":{
-
+        "import/prefer-default-export":"off",
+        "class-methods-use-this": "off",
+        "import/no-cycle": "off",
+        "no-plusplus": "off",
+        "no-param-reassign": "off"
+        
     }
 }

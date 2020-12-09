@@ -1,10 +1,11 @@
 import * as express from 'express';
 import { Request, Response, NextFunction } from 'express';
 import { HttpException } from '../../middlewares/error';
-const router = express.Router();
 
 import { Role, RoleInterface } from '../models';
 import { RoleController } from '../controllers';
+
+const router = express.Router();
 
 const roleController = new RoleController();
 
@@ -12,8 +13,8 @@ const create = (req: Request, res: Response, next: NextFunction) => {
   const role: RoleInterface = req.body;
   roleController
     .create(role)
-    .then((role: Role) => {
-      res.json(role);
+    .then((doc: Role) => {
+      res.json({ data: doc });
     })
     .catch((error: Error) => next(error));
 };
@@ -53,7 +54,7 @@ const removeOne = (req: Request, res: Response, next: NextFunction) => {
       if (_n === 0) {
         return next(new HttpException(400, 'Item against this id not exist'));
       }
-      res.json({ message: 'deleted role successfully' });
+      return res.json({ message: 'deleted role successfully' });
     })
     .catch((error: Error) => next(error));
 };

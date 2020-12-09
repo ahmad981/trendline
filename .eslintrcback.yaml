@@ -12,3 +12,24 @@ plugins:
 - '@typescript-eslint'
 rules:
   "prettier:prettier":"on"
+
+
+// {
+//     "extends": [
+//         "airbnb", 
+//         "prettier", 
+//         "plugin:node/recommended", 
+//         "typescript",
+//         "prettier/@typescript-eslint",
+//         "plugin:@typescript-eslint/recommended"
+//     ],
+//     "plugins": ["prettier"],
+//     "parser": "@typescript-eslint/parser",
+//     "parserOptions": {
+//         "ecmaVersion": 2018,
+//         "sourceType": "module"
+//     },
+//     "rules":{
+
+//     }
+// }

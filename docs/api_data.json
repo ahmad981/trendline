@@ -1,0 +1,288 @@
+[
+  {
+    "type": "post",
+    "url": "trendline/industry",
+    "title": "create an industry",
+    "description": "<p>Create a new Industry</p>",
+    "version": "1.0.0",
+    "name": "Create_Industry",
+    "group": "Industry",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of industry</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Created 200": [
+          {
+            "group": "Created 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.id",
+            "description": "<p>Industry's id</p>"
+          },
+          {
+            "group": "Created 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.name",
+            "description": "<p>User's name</p>"
+          },
+          {
+            "group": "Created 200",
+            "type": "Date",
+            "optional": false,
+            "field": "user.createdAt",
+            "description": "<p>Timestamp</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Bad Request 422": [
+          {
+            "group": "Bad Request 422",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Some parameters may contain invalid values</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/apis/routes/industry.routes.ts",
+    "groupTitle": "Industry"
+  },
+  {
+    "type": "get",
+    "url": "trendline/industry",
+    "title": "get all industries",
+    "description": "<p>get all registered industries</p>",
+    "version": "1.0.0",
+    "name": "Create_Industry",
+    "group": "Industry",
+    "permission": [
+      {
+        "name": "public"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "data.id",
+            "description": "<p>Users id.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.name",
+            "description": "<p>Users Name.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.createdAt",
+            "description": "<p>Timestamp</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/apis/routes/industry.routes.ts",
+    "groupTitle": "Industry"
+  },
+  {
+    "type": "delete",
+    "url": "/industry/id",
+    "title": "delete industry",
+    "name": "delete_industry",
+    "group": "Industry",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Created 200": [
+          {
+            "group": "Created 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success Message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    message : \"Successfully deleted industry\"\n}",
+          "type": "200"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Bad Request 422": [
+          {
+            "group": "Bad Request 422",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>industry id is invalid</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Bad request",
+          "content": "{\n   message: \"Item against this id not exist\"\n}",
+          "type": "400"
+        }
+      ]
+    },
+    "filename": "src/apis/routes/industry.routes.ts",
+    "groupTitle": "Industry"
+  },
+  {
+    "type": "get",
+    "url": "/industry/:ID",
+    "title": "title",
+    "name": "get_one_by_ID",
+    "group": "Industry",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    property : value\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "type",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    data: {\n     id: 2,\n     name: some industry,\n     createdAt: '12/11/2020'\n   }\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "filename": "src/apis/routes/industry.routes.ts",
+    "groupTitle": "Industry"
+  },
+  {
+    "type": "put",
+    "url": "/industry/id",
+    "title": "udpate industry",
+    "name": "update_industry",
+    "group": "Industry",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>description</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "{",
+          "content": "{\n   name: industry name to be updated\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Updated 200": [
+          {
+            "group": "Updated 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success Message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    message : \"Successfully updated industry\"\n}",
+          "type": "200"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Bad Request 422": [
+          {
+            "group": "Bad Request 422",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Some parameters may contain invalid values</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Unprocessable Entity",
+          "content": "{\n   message: \"Unprocessible Entity\"\n}",
+          "type": "422"
+        }
+      ]
+    },
+    "filename": "src/apis/routes/industry.routes.ts",
+    "groupTitle": "Industry"
+  }
+]

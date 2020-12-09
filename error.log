@@ -1,0 +1,41 @@
+:: -- Tue Dec 08 2020 02:19:44 GMT+0500 (Pakistan Standard Time) | [POST] | /user/signup | [ERROR] | Validation error 
+ undefined 
+ :: -- Tue Dec 08 2020 02:21:23 GMT+0500 (Pakistan Standard Time) | [POST] | /user/signup | [ERROR] | Validation error 
+ SequelizeUniqueConstraintError: Validation error
+    at Query.formatError (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:218:16)
+    at Query.run (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:54:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+ :: -- Tue Dec 08 2020 02:21:41 GMT+0500 (Pakistan Standard Time) | [POST] | /user/signup | [ERROR] | Validation error 
+ SequelizeUniqueConstraintError: Validation error
+    at Query.formatError (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:218:16)
+    at Query.run (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:54:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+ :: -- Tue Dec 08 2020 02:24:23 GMT+0500 (Pakistan Standard Time) | [POST] | /org | [ERROR] | notNull Violation: Organization.domain cannot be null 
+ SequelizeValidationError: notNull Violation: Organization.domain cannot be null
+    at InstanceValidator._validate (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:78:13)
+    at InstanceValidator._validateAndRunHooks (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:111:7)
+    at InstanceValidator.validate (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:93:12)
+    at Organization.save (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/model.js:3877:7)
+    at Function.create (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/model.js:2207:12) 
+ :: -- Tue Dec 08 2020 02:24:23 GMT+0500 (Pakistan Standard Time) | [POST] | /org | [ERROR] | notNull Violation: Organization.name cannot be null 
+ SequelizeValidationError: notNull Violation: Organization.name cannot be null
+    at InstanceValidator._validate (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:78:13)
+    at InstanceValidator._validateAndRunHooks (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:111:7)
+    at InstanceValidator.validate (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/instance-validator.js:93:12)
+    at Organization.save (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/model.js:3877:7)
+    at Function.create (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/model.js:2207:12) 
+ :: -- Tue Dec 08 2020 02:24:23 GMT+0500 (Pakistan Standard Time) | [POST] | /org | [ERROR] | Validation error 
+ SequelizeUniqueConstraintError: Validation error
+    at Query.formatError (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:218:16)
+    at Query.run (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:54:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+ :: -- Tue Dec 08 2020 02:24:23 GMT+0500 (Pakistan Standard Time) | [DELETE] | /industry/35 | [ERROR] | Item against this id not exist 
+ Error: Item against this id not exist
+    at /home/khalid/Desktop/work-space/maqware/trendlines/src/apis/routes/industry.routes.ts:64:21
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+ :: -- Tue Dec 08 2020 02:24:24 GMT+0500 (Pakistan Standard Time) | [POST] | /user/signup | [ERROR] | Validation error 
+ SequelizeUniqueConstraintError: Validation error
+    at Query.formatError (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:218:16)
+    at Query.run (/home/khalid/Desktop/work-space/maqware/trendlines/node_modules/sequelize/lib/dialects/mysql/query.js:54:18)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) 
+ 

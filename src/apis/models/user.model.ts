@@ -1,20 +1,29 @@
 // lib/models/node.model.ts
-import { Model, DataTypes, Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import { database } from '../../config';
-import { Role } from '../models';
+
 class User extends Model {
   public id!: number; // Note that the `null assertion` `!` is required in strict mode.
+
   public password!: string;
+
   public email!: string;
+
   public roleId!: number;
+
   public name!: string;
+
   public role?: any;
+
   // timestamps!
   public readonly createdAt!: Date;
+
   public readonly updatedAt!: Date;
 }
 
 export interface UserInterface {
+  id?: number;
+  ID? : number;
   email: string;
   password?: string;
   roleId: number;
@@ -57,21 +66,21 @@ const initUser = () => {
       },
       hash: {
         type: new DataTypes.STRING(128),
-        allowNull: true
+        allowNull: true,
       },
       isEmailVerified: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false
-      }
+        defaultValue: false,
+      },
     },
     {
       // underscored: true,
       tableName: 'users',
       sequelize: database, // this bit is important
-    }
+    },
   );
   User.sync({ force: false }).then(() => console.log('Todo table created'));
-}
+};
 // User.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });
 // Role.belongsTo(User);
 
